@@ -14,14 +14,15 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@RequestMapping(value="/cadastrarUsuario")
-	public String cadastrarUsuario(){
-		Usuario usu = new Usuario();
-		usu.setNome("Carlos");
-		usu.setSenha("1234");
-		usu.setUser("carlos");
-		usuarioService.cadastrarUsuario(usu);
-		return "";
+	@RequestMapping(value="/cadastrarFuncionarioForm")
+	public String cadastrarFuncionarioForm(){
+		return "usuario/cadastrarFuncionarioForm";
+	}
+	
+	@RequestMapping(value="/cadastrarFuncionario")
+	public String cadastrarFuncionario(Usuario usuario){
+		usuarioService.cadastrarFuncionario(usuario);
+		return "home";
 	}
 	
 	@RequestMapping(value="/logar")
