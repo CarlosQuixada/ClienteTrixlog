@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html
+	xmlns = "http://www.w3.org/1999/xhtml"
+	xmlns:th = "http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+>
+
+<head>
+	<link href="/webjars/materializecss/0.97.7/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<title>TrixLog</title>
+</head>
+
+<body>
+	<h1 class="header center blue-text">TrixLog</h1> 
+	<h5 class="header center col s12 light">Sistema de Gestão de Rotas</h5>
+	<div class="row center">
+		<a th:href="@{/cadastrarObjetoForm}" class="btn-large waves-effect waves-light teal">Cadastrar Funcionário</a>
+		<a th:href="@{/verPedidoEmprestimo}" class="btn-large waves-effect waves-light teal">Gerar Rota</a>
+		<a th:href="@{/buscarAmigos}" class="btn-large waves-effect waves-light teal">Visualizar Rota</a>
+	</div>
+
+<script src="/webjars/jquery/2.2.4/jquery.js"></script>
+<script src="/webjars/materializecss/0.97.7/js/materialize.js"></script>
+</body>
+</html>
