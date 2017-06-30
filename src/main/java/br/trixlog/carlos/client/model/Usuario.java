@@ -3,7 +3,8 @@ package br.trixlog.carlos.client.model;
 public class Usuario {
 	private String id;
 	private String nome;
-	private String user;
+	private String empresaId;
+	private String login;
 	private String senha;
 
 	public String getId() {
@@ -22,12 +23,12 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public String getUser() {
-		return user;
+	public String getLogin() {
+		return login;
 	}
 
-	public void setUser(String user) {
-		this.user = user;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 	public String getSenha() {
@@ -36,5 +37,13 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getEmpresaId() {
+		return empresaId;
+	}
+
+	public void setEmpresaId(String empresaId) {
+		this.empresaId = empresaId;
 	}
 }
