@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html
+	xmlns = "http://www.w3.org/1999/xhtml"
+	xmlns:th = "http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+>
+
+<head>
+	<link href="/webjars/materializecss/0.97.7/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<title>TrixLog</title>
+</head>
+
+<body>
+
+	<h2 class="blue-text light center">Gerar Rota</h2>
+	<form th:action="@{/rota/gerarRota}" method="post" enctype="multipart/form-data">
+		<div class="row">
+		 	<div class="row">
+		 		<div class="col s8">
+		 			<div class="file-field input-field">
+      					<div class="btn">
+        					<span>Pontos de Entrega</span>
+        					<input type="file" name="pontos" />
+      					</div>
+      					<div class="file-path-wrapper">
+        					<input class="file-path validate" type="text" placeholder="Insira um arquivo em formato CSV com os pontos de entrega"/>
+      					</div>
+    				</div>
+		 		</div>
+		 </div>
+		 
+                <div class="row">                	
+                    <div class="input-field col s8">
+                        <input id="vehicleId" type="text" th:name="vehicleId"/>
+                        <label for="vehicleId">Id Veiculo</label>
+                    </div>
+                </div>
+            	<div class="row col s8">
+            		<button class="btn waves-effect waves-light center" type="submit" name="action">Gerar Rota</button>
+            	</div>
+          </div>
+	</form>
+
+<script src="/webjars/jquery/2.2.4/jquery.js"></script>
+<script src="/webjars/materializecss/0.97.7/js/materialize.js"></script>
+<script>
+$(document).ready(function() {
+	$('.datepicker').pickadate({
+	    selectMonths: true, // Creates a dropdown to control month
+	    selectYears: 100 // Creates a dropdown of 15 years to control year
+	  });
+  });
+</script>
+</body>
+
+</html>
