@@ -6,6 +6,15 @@ public class Usuario {
 	private String empresaId;
 	private String login;
 	private String senha;
+	private Papel papel;
+
+	public Papel getPapel() {
+		return papel;
+	}
+
+	public void setPapel(Papel papel) {
+		this.papel = papel;
+	}
 
 	public String getId() {
 		return id;
