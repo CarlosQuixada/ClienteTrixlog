@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import br.trixlog.carlos.client.model.Coordenada;
 import br.trixlog.carlos.client.model.ListaRota;
+import br.trixlog.carlos.client.model.Papel;
 import br.trixlog.carlos.client.model.Rota;
 import br.trixlog.carlos.client.model.Usuario;
 import br.trixlog.carlos.client.service.RotaService;
@@ -39,7 +40,7 @@ public class RotaController {
 	}
 	
 	@RequestMapping(value = "/gerarRota")
-	public String gerarRota(@RequestParam MultipartFile pontos, @RequestParam Integer vehicleId,HttpSession session) {
+	public String gerarRota(@RequestParam MultipartFile pontos, @RequestParam Integer vehicleId,HttpSession session,Model model) {
 		Util util = new Util();
 		Usuario usuarioLogado = (Usuario)session.getAttribute("usuarioLogado");
 		if (!pontos.isEmpty()) {
@@ -56,6 +57,10 @@ public class RotaController {
 				Rota rota = rotaService.gerarRota(coordenadas, vehicleId,usuarioLogado.getEmpresaId());
 			}
 		}
+		
+		model.addAttribute("papel",usuarioLogado.getPapel());
+		model.addAttribute("RH",Papel.RH);
+		model.addAttribute("LOGISTICA",Papel.LOGISTICA);
 		return "home";
 	}
 }

@@ -23,7 +23,7 @@
                 </div>
                 <div class="row">                	
                     <div class="input-field col s8">
-                        <input id="login" type="text" th:name="user"/>
+                        <input id="login" type="text" th:name="login"/>
                         <label for="login">Login</label>
                     </div>
                 </div>
@@ -35,6 +35,16 @@
                     	</div>
                 	
                 </div>
+                <div class="row">
+                 <div class="input-field col s8">
+						<select id="papel_select" name="papel" required="required">
+							<option disabled="disabled" selected="selected">Papel do Funcionário</option>
+							<option th:value="${RH}">Recursos Humanos</option>
+							<option th:value="${LOGISTICA}">Analista de Logística</option>
+						</select>
+				</div>
+                </div>
+                
             	<div class="row col s8">
             		<button class="btn waves-effect waves-light center" type="submit" name="action">Cadastrar
             		</button>
@@ -44,6 +54,11 @@
 
 <script src="/webjars/jquery/2.2.4/jquery.js"></script>
 <script src="/webjars/materializecss/0.97.7/js/materialize.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
 </body>
 
 </html>
