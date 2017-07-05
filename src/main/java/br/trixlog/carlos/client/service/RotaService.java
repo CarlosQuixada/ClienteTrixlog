@@ -32,4 +32,12 @@ public class RotaService {
 		ListaRota listaRotas = restTemplate.getForObject(REST_SERVICE_URI+"/buscarRotasByEmpresa/{empresaId}",ListaRota.class, params);
 		return listaRotas;
 	}
+	
+	public Rota getRota(String rotaId){
+		RestTemplate restTemplate = new RestTemplate();
+		Map<String, String> params = new HashMap<String, String>();
+	    params.put("rotaId",rotaId);
+		Rota rota = restTemplate.getForObject(REST_SERVICE_URI+"/getRota/{rotaId}",Rota.class, params);
+		return rota;
+	}
 }

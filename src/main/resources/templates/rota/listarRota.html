@@ -15,20 +15,24 @@
 	<div class="row">
 		<div class="col s12">
 			<table>
-    	<thead>
-    		<th>Empresa</th>
-    		<th>Data da Rota</th>
-    		<th>Veículo</th>
-    	</thead>
-    	<tbody>
-    		<tr th:each="rota:${rotas}">
-    			<td th:text="${rota.name}"></td>
-    			<td th:text="${rota.routeDate}"></td>
-    			<td th:text="${rota.vehicleId}"></td>
-    		</tr>
-    	</tbody>
-    </table>
-	<hr/>
+    			<thead>
+    				<th>Id</th>
+    				<th>Empresa</th>
+    				<th>Data da Rota</th>
+    				<th>Veículo</th>
+    				<th>Action</th>
+    			</thead>
+    			<tbody>
+    				<tr th:each="rota:${rotas}">
+    					<td th:text="${rota.id}"></td>
+    					<td th:text="${rota.name}"></td>
+    					<td th:text="${rota.routeDate}"></td>
+    					<td th:text="${rota.vehicleId}"></td>
+    					<td><a class="waves-effect waves-light btn" th:href="@{'/rota/detalhesRota/'+${rota.id}}">Visualizar Detalhes</a></td>
+    				</tr>
+    			</tbody>
+    		</table>
+			<hr/>
 		</div>
 	</div>
 	

@@ -6,10 +6,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import com.google.gson.Gson;
 import com.opencsv.CSVReader;
 
 import br.trixlog.carlos.client.model.Coordenada;
-
+import br.trixlog.carlos.client.model.Parada;
+@Service
 public class Util {
 	public List<Coordenada> getCoordenadas(String dataBase){
 		List<Coordenada> dataSet = new ArrayList<>();
@@ -33,5 +37,11 @@ public class Util {
 		}
 
 		return dataSet;
+	}
+	
+	public String gerarJsonParadas(List<Parada> paradas){
+		Gson json = new Gson();
+		String stops = json.toJson(paradas);
+		return stops;
 	}
 }

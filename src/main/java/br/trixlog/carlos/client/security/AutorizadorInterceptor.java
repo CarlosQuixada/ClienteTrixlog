@@ -18,7 +18,6 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter{
 		if(uri.endsWith("/")||uri.endsWith("/usuario/logar")|| uri.endsWith("/home") || uri.endsWith("/usuario/logout")){
 			return true;
 		}
-		
 		Usuario logado = (Usuario)request.getSession().getAttribute("usuarioLogado");
 		
 		
@@ -45,7 +44,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter{
 	}
 	
 	private boolean permitirAnalistaLogistica(String uri){
-		if(uri.endsWith("/rota/gerarRotaForm") || uri.contains("/rota/gerarRota") || uri.endsWith("/rota/listarRota") ){
+		if(uri.endsWith("/rota/gerarRotaForm") || uri.contains("/rota/gerarRota") || uri.endsWith("/rota/listarRota") || uri.contains("/rota/detalhesRota")){
 			return true;
 		}
 		return false;
