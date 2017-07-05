@@ -13,14 +13,15 @@ import com.opencsv.CSVReader;
 
 import br.trixlog.carlos.client.model.Coordenada;
 import br.trixlog.carlos.client.model.Parada;
+
 @Service
 public class Util {
-	public List<Coordenada> getCoordenadas(String dataBase){
+	public List<Coordenada> getCoordenadas(String dataBase) {
 		List<Coordenada> dataSet = new ArrayList<>();
 		try {
 			CSVReader reader = new CSVReader(new FileReader("src/main/resources/static/arquivos/" + dataBase));
 			String[] nextLine;
-			
+
 			try {
 				while ((nextLine = reader.readNext()) != null) {
 					Coordenada coord = new Coordenada();
@@ -38,8 +39,8 @@ public class Util {
 
 		return dataSet;
 	}
-	
-	public String gerarJsonParadas(List<Parada> paradas){
+
+	public String gerarJsonParadas(List<Parada> paradas) {
 		Gson json = new Gson();
 		String stops = json.toJson(paradas);
 		return stops;

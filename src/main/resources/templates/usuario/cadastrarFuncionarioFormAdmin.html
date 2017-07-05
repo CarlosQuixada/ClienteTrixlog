@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html
+	xmlns = "http://www.w3.org/1999/xhtml"
+	xmlns:th = "http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+>
+
+<head>
+	<link href="/webjars/materializecss/0.97.7/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<title>TrixLog</title>
+</head>
+
+<body>
+
+	<h2 class="blue-text light center">Cadastrar Funcionário</h2>
+	<form th:action="@{/cadastrarFuncionarioAdmin}" method="post">
+		<div class="row">
+		  <div class="row">
+                    <div class="input-field col s8">
+                       <input id="nome" type="text" th:name="nome"/>
+                		<label for="nome">Nome</label>
+                    </div>
+                </div>
+                <div class="row">                	
+                    <div class="input-field col s8">
+                        <input id="login" type="text" th:name="login"/>
+                        <label for="login">Login</label>
+                    </div>
+                </div>
+                 <div class="row">
+                 	
+                   		<div class="input-field col s8">
+                        	<input id="senha" type="password" th:name="senha"/>
+                        	<label for="senha">Senha</label>
+                    	</div>
+                	
+                </div>
+                <div class="row">
+                 <div class="input-field col s8">
+						<select id="papel_select" name="papel" required="required">
+							<option disabled="disabled" selected="selected">Papel do Funcionário</option>
+							<option th:value="${RH}">Recursos Humanos</option>
+							<option th:value="${LOGISTICA}">Analista de Logística</option>
+						</select>
+				</div>
+                </div>
+                
+                <div class="row">
+                 <div class="input-field col s8">
+						<select id="empresa_select" name="empresaId" required="required">
+							<option disabled="disabled" selected="selected">Empresa</option>
+							<div  th:each="empresa:${empresas}">
+								<option th:value="${empresa.id}" th:text="${empresa.nome}"></option>
+							</div>
+							
+						</select>
+				</div>
+                </div>
+                
+            	<div class="row col s8">
+            		<button class="btn waves-effect waves-light center" type="submit" name="action">Cadastrar
+            		</button>
+            	</div>
+          </div>
+	</form>
+
+<script src="/webjars/jquery/2.2.4/jquery.js"></script>
+<script src="/webjars/materializecss/0.97.7/js/materialize.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
+</body>
+
+</html>

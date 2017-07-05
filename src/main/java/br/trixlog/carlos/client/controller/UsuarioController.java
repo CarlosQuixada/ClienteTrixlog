@@ -34,6 +34,7 @@ public class UsuarioController {
 		model.addAttribute("papel",usuarioLogado.getPapel());
 		model.addAttribute("RH",Papel.RH);
 		model.addAttribute("LOGISTICA",Papel.LOGISTICA);
+		model.addAttribute("ADMIN",Papel.ADMIN);
 		return "home";
 	}
 	
@@ -50,6 +51,7 @@ public class UsuarioController {
 		model.addAttribute("papel",logado.getPapel());
 		model.addAttribute("RH",Papel.RH);
 		model.addAttribute("LOGISTICA",Papel.LOGISTICA);
+		model.addAttribute("ADMIN",Papel.ADMIN);
 		return "home"; 
 	}
 	
